@@ -92,7 +92,7 @@ uint8_t NDIRZ16::measure ()
 
     if (buf[1] == 0x86) {
         if (checksum_valid(buf)) {
-            ppm         = (uint16_t)buf[2] << 8 | buf[3];
+            ppm         = (uint16_t)buf[2] *256 + buf[3];
             temperature = buf[4] - 40;
             return true;
         } else {
